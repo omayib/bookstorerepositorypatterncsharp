@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:bookstore"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="DataTemplateItemBook">
+            <Grid Height="86" Width="282" Background="White">
+                <Image  Stretch="Fill" Source="{Binding Path=cover}" HorizontalAlignment="Left" Height="75" Margin="10,5,-10,-5" VerticalAlignment="Top" Width="75" OpacityMask="#FFDEA0A0"/>
+                <TextBlock  Text="{Binding Path=title}" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Margin="90,8,0,0" VerticalAlignment="Top" Height="24" Width="110"/>
+                <TextBlock  Text="{Binding Path=year}" FontSize="8"  HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="110"/>
+                <TextBlock  Text="{Binding Path=author}" FontSize="8"  HorizontalAlignment="Left" Margin="90,69,0,0" VerticalAlignment="Top" Width="110"/>
+                <TextBlock  Text="{Binding Path=id}" FontSize="8"  HorizontalAlignment="Left" Margin="90,53,0,0" VerticalAlignment="Top" Width="110"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Label Content="Label" HorizontalAlignment="Left" Margin="297,140,0,0" VerticalAlignment="Top"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="241,192,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="buttonEdit" Content="Reload" HorizontalAlignment="Left" Margin="290,379,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" SelectionChanged="selectBookListener"  Height="267" Margin="41,92,0,0" VerticalAlignment="Top" Width="324" ItemTemplate="{DynamicResource DataTemplateItemBook}"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="398,87,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxTitle" HorizontalAlignment="Left" Height="23" Margin="398,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="168"/>
+        <Label Content="Author" HorizontalAlignment="Left" Margin="398,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxAuthor" HorizontalAlignment="Left" Height="23" Margin="398,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="168"/>
+        <Label Content="Year" HorizontalAlignment="Left" Margin="398,213,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxYear" HorizontalAlignment="Left" Height="24" Margin="398,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <Button x:Name="buttonSubmit" Content="Submit" HorizontalAlignment="Left" Margin="398,379,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSubmit_Click"/>
+        <TextBox x:Name="textBoxCover" HorizontalAlignment="Left" Height="23" Margin="398,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <Label Content="Cover (url)" HorizontalAlignment="Left" Margin="398,278,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
